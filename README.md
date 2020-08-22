@@ -48,7 +48,6 @@ If a client wishes to write to a file the directory service sends the request to
 **Locking service**
 
 If client 1 wishes to write to a file it requests to lock the file for writing. Client 1 can only write to a file when it receives the lock, it can read from a file whenever it wants. If client 2 wants to write to a file and the file is locked for writing then client 2 must wait until client 1 has unlocked it. Client 2 who is requesting the write will keep polling to check for the unlocked file. I have included a 10 second timeout for polling (which is a short period of time) for simulation purposes. 
-----
 
 **Caching**
 
