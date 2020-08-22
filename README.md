@@ -9,57 +9,6 @@ To run this project, do the following:
 * Run fileserver A in a separate directory - fileserver A is holds the primary copy for replication and can be written to: **python fileserverA.py**
 * Run fileserver B in a separate directory - fileserver B only takes read requests: **python fileserverB.py**
 * Run fileserver C in a separate directory - fileserver C (like fileserver B) only takes read requests: **python fileserverC.py**
-
-## Example Usage
-
-* Start up the directory_service.py, the locking_service.py and the three fileservers all in separate terminals. Fileserver A, fileserver B and fileserver c must exist in their own separate folders/ directories.
-
-* Open 2 clients in separate terminals.
-
-* Client 1 write:
-
-```
-$<write> file1
-You are granted the file...
-Write some text...
-<end> to finish writing
---------------------------------
-$Hello world!
-$<end>
---------------------------------
-Sending version: 0
-File successfully written to
-File unlocked...
-Exiting <write> mode...
-
-```
-
-* Client 1 read:
-
-```
-$<read> file1
-Checking version...
-Versions match, reading from cache...
---------------------------------
-Hello world!
-
---------------------------------
-Exiting <read> mode...
-```
-
-* Client 2 read: 
-
-```
-$<read> file1
-REQUESTING FILE FROM FILE SERVER - FILE NOT IN CACHE
---------------------------------
-Hello world!
-
---------------------------------
-file1.txt successfully cached...
-Exiting <read> mode...
-```
-
 ## Project Overview
 This project simulates a distributed file system using the NFS protocol.
 It can support multiple clients accessing files.
