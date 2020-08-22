@@ -48,9 +48,6 @@ If a client wishes to write to a file the directory service sends the request to
 **Locking service**
 
 If client 1 wishes to write to a file it requests to lock the file for writing. Client 1 can only write to a file when it receives the lock, it can read from a file whenever it wants. If client 2 wants to write to a file and the file is locked for writing then client 2 must wait until client 1 has unlocked it. Client 2 who is requesting the write will keep polling to check for the unlocked file. I have included a 10 second timeout for polling (which is a short period of time) for simulation purposes. 
-
-If client 1 is writing to a file and client 2, client 3 and client 4 request to write to the file in this order, client 2 will be the first client to retrieve the lock on the file. When client 2 finishes, client 3 will get the lock, and then client 4, etc. This is fair locking and unlocking. It works as a FIFO queue. 
-
 ----
 
 **Caching**
